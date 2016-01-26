@@ -1,3 +1,9 @@
+#####################################
+#  Author:                          #
+#   Lazutin Aleksei                 #
+#   lazutin.aleksei@gmail.com       #
+#   2015                            #
+#####################################
   use DBI;
   use strict;
   use Excel::Writer::XLSX;
@@ -31,7 +37,7 @@
   my $row_flag_w3wp = 0;
 
 #Connection string for MS SQL  
-my $dbh = DBI-> connect('dbi:ODBC:DSN=perf;UID=sa;PWD=sasasa;{ RaiseError => 1, AutoCommit => 1 }') or die "CONNECT ERROR! :: $DBI::err $DBI::errstr $DBI::state $!\n"; 
+my $dbh = DBI-> connect('dbi:ODBC:DSN=DSN;UID=user;PWD=password;{ RaiseError => 1, AutoCommit => 1 }') or die "CONNECT ERROR! :: $DBI::err $DBI::errstr $DBI::state $!\n"; 
 
 #Main
 opendir(CURR_DIR, ".\\".$dir) or die "Cannot open '$dir': $!";

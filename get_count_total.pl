@@ -1,3 +1,9 @@
+#####################################
+#  Author:                          #
+#   Lazutin Aleksei                 #
+#   lazutin.aleksei@gmail.com       #
+#   2015                            #
+#####################################
   use DBI;
   use strict;
 

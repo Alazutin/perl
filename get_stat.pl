@@ -1,3 +1,9 @@
+#####################################
+#  Author:                          #
+#   Lazutin Aleksei                 #
+#   lazutin.aleksei@gmail.com       #
+#   2015                            #
+#####################################
   use strict;
   use Excel::Writer::XLSX;
   use DBI;
