@@ -5,12 +5,12 @@
     # Damping data from Oracle database into MS XLSX file. 
     #
     # Author: Lazutin Aleksey
-	# E-mail: Alexey.Lazutin@aplana.com
+    # E-mail: Alexey.Lazutin@aplana.com
     # October 2017
-	#
-	# To use the command line parameters, you mast define first and second parameter
-	# as the START and STOP Date in format DD.MM.YYYYTHH24:MI:SS
-	#
+    #
+    # To use the command line parameters, you mast define first and second parameter
+    # as the START and STOP Date in format DD.MM.YYYYTHH24:MI:SS
+    #
 	
 use strict;
 use Retail qw(:Both);
