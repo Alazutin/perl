@@ -42,18 +42,25 @@ sub get_server
   }  
   
 # Input data folder
+  my $db_dir = '.\DB'; 
   my $dir = '.\Total';
   my @filename;
+
+unless (-e $db_dir)
+  {
+	print "Folder $db_dir not exsist! Created it now.\n";
+	mkdir $db_dir;
+  }
+  
+my $dbh = DBI->connect('dbi:SQLite:uri=file:.\\DB\\counters_retail.db?mode=rwc',undef,undef,{ AutoCommit => 0, RaiseError => 1 })  or die $DBI::errstr;
+ 
+  if ($dbh) {
+	print "Opened database successfully\n"; 
   
   chdir ($dir) or die "Cannot CHDIR to '$dir': $!";
-
 # Mask for you .csv file  
   @filename = glob('tv*.csv');
-
-my $dbh = DBI->connect('dbi:SQLite:uri=file:..\\DB\\counters_retail.db?mode=rwc',undef,undef,{ AutoCommit => 0, RaiseError => 1 })  or die $DBI::errstr;; 
   
-print "Opened database successfully\n"; 
-
 # Output data  
   open OUT_FILE, ">> !Total_Counters.csv";
   print OUT_FILE "Server;Avg % Processor Time;Max % Processor Time;Avg % User Time;Max % User Time;Avg Processor Queue Length;Max Processor Queue Length;Avg Available Bytes;Min Available Bytes;Avg Page Faults/sec;Max Page Faults/sec;Avg Pages/sec;Max Pages/sec;Avg % Disk Time;Max % Disk Time;Avg Avg. Disk sec/Read;Max Avg. Disk sec/Read;Avg Avg. Disk sec/Write;Max Avg. Disk sec/Write;Avg Avg. Disk Queue Length;Max Avg. Disk Queue Length\n";
@@ -142,3 +149,4 @@ foreach my $file (@filename){
 
 $dbh->disconnect;
 close OUT_FILE; 
+}
